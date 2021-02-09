@@ -60,6 +60,18 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /s /y $(TargetDir)*.* C:\Code\DesignPatterns\Assets\Plugins\DesignPatternsLibrary\*.*</PostBuildEvent>
+    <PostBuildEvent>xcopy /s /y $(TargetDir)*.* C:\Code\DesignPatterns\Assets\Plugins\DesignPatternsLibrary\*.*
+echo Remove UnityEngine.UI.dll
+del C:\Code\DesignPatterns\Assets\Plugins\DesignPatternsLibrary\UnityEngine.UI.dll
+del C:\Code\DesignPatterns\Assets\Plugins\DesignPatternsLibrary\UnityEngine.UI.dll.meta
+echo Remove UnityEngine.UI.xml
+del C:\Code\DesignPatterns\Assets\Plugins\DesignPatternsLibrary\UnityEngine.UI.xml
+del C:\Code\DesignPatterns\Assets\Plugins\DesignPatternsLibrary\UnityEngine.UI.xml.meta
+echo Remove UnityEngine.dll
+del C:\Code\DesignPatterns\Assets\Plugins\DesignPatternsLibrary\UnityEngine.dll
+del C:\Code\DesignPatterns\Assets\Plugins\DesignPatternsLibrary\UnityEngine.dll.meta
+echo Remove UnityEngine.xml
+del C:\Code\DesignPatterns\Assets\Plugins\DesignPatternsLibrary\UnityEngine.xml
+del C:\Code\DesignPatterns\Assets\Plugins\DesignPatternsLibrary\UnityEngine.xml.meta</PostBuildEvent>
   </PropertyGroup>
 </Project>
