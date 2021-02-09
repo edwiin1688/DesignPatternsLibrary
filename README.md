@@ -10,3 +10,5 @@
 * 最少知識(LKP: Least Knowledge Principle)
 * 少用繼承多用組合
 
+# 建立 Singleton 範型
+用 `public class ObjectClass : Singleton<ObjectClass>` 來宣告，就能建立自己的 Singleton 物件。
