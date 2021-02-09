@@ -1,5 +1,5 @@
 ﻿# DesignPatternsLibrary
-DesignPatternsLibrary
+設計模式函示庫
 
 # 🎮物件導向設計原則
 * 單一職責(SRP: Single Pesponsibility Principle)
