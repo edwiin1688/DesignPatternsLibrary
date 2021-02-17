@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 場景狀態控制者
@@ -27,7 +28,9 @@ public class SceneStateController
 
 		// 通知前一個State結束
 		if (m_State != null)
+		{
 			m_State.StateEnd();
+		}
 
 		// 設定
 		m_State = State;
@@ -40,8 +43,11 @@ public class SceneStateController
 	private void LoadScene(string LoadSceneName)
 	{
 		if (LoadSceneName == null || LoadSceneName.Length == 0)
+		{
 			return;
-		Application.LoadLevel(LoadSceneName);
+		}
+		SceneManager.LoadScene(LoadSceneName);
+		Debug.Log("SceneManager.LoadScene: " + LoadSceneName);
 	}
 
 	/// <summary>
@@ -49,9 +55,12 @@ public class SceneStateController
 	/// </summary>
 	public void StateUpdate()
 	{
-		// 是否還在載入
-		if (Application.isLoadingLevel)
+		// 是否還在載入		
+		if (!SceneManager.GetActiveScene().isLoaded)
+		{
+			Debug.Log("還在載入: " + SceneManager.GetActiveScene().name);
 			return;
+		}
 
 		// 通知新的State開始
 		if (m_State != null && m_bRunBegin == false)
@@ -61,6 +70,8 @@ public class SceneStateController
 		}
 
 		if (m_State != null)
+		{
 			m_State.StateUpdate();
+		}
 	}
 }
